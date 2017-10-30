@@ -1,3 +1,4 @@
 /db-data
 /node_modules
 /vendor
+/web/files/*

@@ -36,6 +36,7 @@ class FileManager extends React.Component {
         });
         testDropzone.on('success', (file) => {
            this.getList();
+           $(dropzoneContainer).hide();
         });
         $(window).on('showList', () => this.getList());
     }

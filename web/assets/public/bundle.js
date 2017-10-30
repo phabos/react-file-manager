@@ -4572,6 +4572,7 @@ var FileManager = function (_React$Component) {
             });
             testDropzone.on('success', function (file) {
                 _this2.getList();
+                (0, _jquery2.default)(dropzoneContainer).hide();
             });
             (0, _jquery2.default)(window).on('showList', function () {
                 return _this2.getList();

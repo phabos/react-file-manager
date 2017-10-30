@@ -44,15 +44,7 @@ class FileController
         if( !empty( $request->files ) ) {
             foreach ($request->files->all() as $file) {
                 $fileName = md5(uniqid()).'.'.$file->guessExtension();
-                $file->move(
-                    $this->app['upload.dir'],
-                    $fileName
-                );
-                $file = new File();
-                $file->path = $this->app['upload.dir'] . $fileName;
-                $file->title = $fileName;
-                $file->uploaded = new \DateTime();
-                $file->save();
+                $this->app['file.service']->uploadFile($file);
             }
         }
 
@@ -61,16 +53,7 @@ class FileController
             if( isset( $img[1] ) ) {
                 try {
                     $file = new Base64EncodedFile($img[1]);
-                    $fileName = md5(uniqid()).'.'.$file->guessExtension();
-                    $file->move(
-                        $this->app['upload.dir'],
-                        $fileName
-                    );
-                    $file = new File();
-                    $file->path = $this->app['upload.dir'] . $fileName;
-                    $file->title = $fileName;
-                    $file->uploaded = new \DateTime();
-                    $file->save();
+                    $this->app['file.service']->uploadFile($file);
                 } catch (FileException $e) {
                     return $this->app->json([
                         'message' => 'An error occured ' . $e->getMessage()

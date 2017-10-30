@@ -28,6 +28,10 @@ $app['posts.controller'] = function() use ($app) {
     return new App\Controllers\PostController($app);
 };
 
+$app['file.service'] = function() use ($app) {
+    return new App\Services\FileService($app);
+};
+
 $app['files.controller'] = function() use ($app) {
     return new App\Controllers\FileController($app);
 };
