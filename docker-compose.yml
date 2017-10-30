@@ -1,0 +1,27 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "5000:3000"
+    volumes:
+      - .:/var/www/silex
+    networks:
+      - develop
+    depends_on:
+      - mysql
+  mysql:
+    image: mysql/mysql-server:5.5
+    volumes:
+     - db_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: silex
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+    networks:
+       - develop
+networks:
+  develop:
+volumes:
+    db_data:

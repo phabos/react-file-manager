@@ -1,0 +1,14 @@
+{
+    "require": {
+        "silex/silex": "~2.0",
+        "illuminate/database": "~5.1",
+        "robmorgan/phinx": "^0.9.1",
+        "twig/twig": "^1.35",
+        "symfony/twig-bridge": "^3.3",
+        "symfony/asset": "^3.3",
+        "hshn/base64-encoded-file": "^1.2"
+    },
+    "autoload": {
+        "psr-0": {"App": "src/"}
+    }
+}

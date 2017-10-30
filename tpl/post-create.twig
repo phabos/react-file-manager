@@ -1,0 +1,16 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+    Content of the page...
+    <a href="#" class="file-manager">Show</a>
+{% endblock %}
+
+{% block javascripts %}
+<script>
+var settings = {
+    'list': '{{ path("file_list") }}',
+    'upload': '{{ path("file_upload") }}',
+};
+</script>
+<script src="/assets/public/bundle.js"></script>
+{% endblock %}
