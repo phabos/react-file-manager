@@ -28,6 +28,10 @@ $app['posts.controller'] = function() use ($app) {
     return new App\Controllers\PostController($app);
 };
 
+$app['comments.controller'] = function() use ($app) {
+    return new App\Controllers\CommentsController($app);
+};
+
 $app['file.service'] = function() use ($app) {
     return new App\Services\FileService($app);
 };
@@ -39,5 +43,7 @@ $app['files.controller'] = function() use ($app) {
 $app->get('/', 'posts.controller:homeAction')->bind('home');
 $app->get('/file/list', 'files.controller:listAction')->bind('file_list');
 $app->post('/file/upload', 'files.controller:uploadAction')->bind('file_upload');
+$app->get('/comment/add', 'comments.controller:addAction')->bind('comment_add');
+$app->get('/comment/list', 'comments.controller:listAction')->bind('comment_list');
 
 $app->run();
